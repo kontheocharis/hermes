@@ -3,5 +3,5 @@
 
 int main(int argc, char *argv[])
 {
-    printf("%s", herm_say_hello());
+    printf("%s", herm_get_tun_name());
 }

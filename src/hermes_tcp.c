@@ -1,6 +1,8 @@
 #include "../include/hermes_tcp.h"
+#include "tun.h"
 
-char *herm_say_hello()
+char *herm_get_tun_name()
 {
-    return "Hello!\n";
+    struct tun *t = tun_new();
+    return tun_name(t);
 }

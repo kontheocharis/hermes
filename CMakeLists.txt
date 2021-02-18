@@ -7,14 +7,11 @@ set(CMAKE_C_STANDARD_REQUIRED TRUE)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-file(GLOB_RECURSE hermes_srcs "*.c" "*.h")
+if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+        set(TARGET_PLATFORM "macos")
+else()
+        message(FATAL_ERROR "The operating system '${CMAKE_SYSTEM_NAME}' is not currently supported" )
+endif()
 
-add_library(hermes_tcp STATIC ${hermes_srcs})
-set_target_properties(hermes_tcp PROPERTIES PUBLIC_HEADER "include/hermes_tcp.h")
-
-install(TARGETS hermes_tcp 
-        LIBRARY DESTINATION lib
-        PUBLIC_HEADER DESTINATION include
-)
-
+add_subdirectory(src)
 add_subdirectory(test)
