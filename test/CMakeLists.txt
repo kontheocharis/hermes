@@ -1,0 +1,2 @@
+add_executable(hermes_tcp_test main.c)
+target_link_libraries(hermes_tcp_test hermes_tcp)
