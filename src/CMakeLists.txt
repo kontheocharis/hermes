@@ -1,6 +1,8 @@
 set(hermes_srcs 
         "tun.h" 
         "hermes_tcp.c"
+        "log.c"
+        "log.h"
         )
 
 add_subdirectory(${TARGET_PLATFORM})
